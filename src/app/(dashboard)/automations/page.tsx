@@ -66,6 +66,7 @@ export default function AutomationsPage() {
   const [error, setError] = useState<string | null>(null)
   const [pendingDelete, setPendingDelete] = useState<Automation | null>(null)
   const [deleting, setDeleting] = useState(false)
+  const [installingDigitalMarketing, setInstallingDigitalMarketing] = useState(false)
 
   async function load() {
     try {
@@ -137,6 +138,25 @@ export default function AutomationsPage() {
     router.push(`/automations/new?template=${slug}`)
   }
 
+  async function installDigitalMarketing() {
+    if (!canCreate || installingDigitalMarketing) return
+    setInstallingDigitalMarketing(true)
+    try {
+      const res = await fetch("/api/automations/digital-marketing", { method: "POST" })
+      const body = await res.json().catch(() => ({}))
+      if (!res.ok) {
+        throw new Error(body?.error ?? "Failed to install Digital Marketing automation")
+      }
+      toast.success("Digital Marketing automation installed", {
+        description: "The menu and 8 service reply automations are ready for testing.",
+      })
+      await load()
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Failed to install Digital Marketing automation")
+    } finally {
+      setInstallingDigitalMarketing(false)
+    }
+  }
 
   if (error) {
     return (
@@ -168,15 +188,31 @@ export default function AutomationsPage() {
             {t("subtitle")}
           </p>
         </div>
-        <GatedButton
-          canAct={canCreate}
-          gateReason="create automations"
-          onClick={() => router.push("/automations/new")}
-          className="bg-primary text-primary-foreground hover:bg-primary/90"
-        >
-          <Plus className="h-4 w-4" />
-          {t("create")}
-        </GatedButton>
+        <div className="flex items-center gap-2">
+          <GatedButton
+            canAct={canCreate}
+            gateReason="install Digital Marketing automation"
+            onClick={installDigitalMarketing}
+            disabled={installingDigitalMarketing}
+            variant="outline"
+          >
+            {installingDigitalMarketing ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <MessageCircle className="h-4 w-4" />
+            )}
+            {installingDigitalMarketing ? "Installing..." : "Install Digital Marketing"}
+          </GatedButton>
+          <GatedButton
+            canAct={canCreate}
+            gateReason="create automations"
+            onClick={() => router.push("/automations/new")}
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
+          >
+            <Plus className="h-4 w-4" />
+            {t("create")}
+          </GatedButton>
+        </div>
       </div>
 
       {showTemplates && (
