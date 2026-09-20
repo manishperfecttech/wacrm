@@ -1,0 +1,66 @@
+{
+  "name": "Digital Marketing Service Menu",
+  "description": "Automated WhatsApp menu for the 8 core Digital Marketing services.",
+  "menu": {
+    "keywords": ["Hi", "Hello", "Start"],
+    "body": "👋 Hello! Welcome to Manish Perfect Tech.\n\nPlease choose a Digital Marketing service from the list below.",
+    "header": "Digital Marketing",
+    "footer": "Reply anytime to continue",
+    "button_label": "View Services"
+  },
+  "custom_field": {
+    "name": "Interested Service",
+    "type": "text"
+  },
+  "common_tag": "Test Automation",
+  "services": [
+    {
+      "id": "dm_seo",
+      "name": "SEO",
+      "description": "Search Engine Optimization",
+      "confirmation": "Great choice! You selected SEO. Our team can help with your search engine optimization requirements. We’ll continue here on WhatsApp."
+    },
+    {
+      "id": "dm_social_media",
+      "name": "Social Media Marketing",
+      "description": "Social media growth and management",
+      "confirmation": "Great choice! You selected Social Media Marketing. Our team can help with your social media growth and management requirements. We’ll continue here on WhatsApp."
+    },
+    {
+      "id": "dm_performance",
+      "name": "Performance Marketing",
+      "description": "Campaigns focused on measurable results",
+      "confirmation": "Great choice! You selected Performance Marketing. Our team can help with measurable, results-focused campaigns. We’ll continue here on WhatsApp."
+    },
+    {
+      "id": "dm_google_ads",
+      "name": "Google Ads",
+      "description": "Google Search, Display and YouTube Ads",
+      "confirmation": "Great choice! You selected Google Ads. Our team can help with Google advertising campaigns and optimization. We’ll continue here on WhatsApp."
+    },
+    {
+      "id": "dm_meta_ads",
+      "name": "Meta Ads",
+      "description": "Facebook and Instagram advertising",
+      "confirmation": "Great choice! You selected Meta Ads. Our team can help with Facebook and Instagram advertising campaigns. We’ll continue here on WhatsApp."
+    },
+    {
+      "id": "dm_youtube",
+      "name": "YouTube Marketing",
+      "description": "YouTube channel and video growth",
+      "confirmation": "Great choice! You selected YouTube Marketing. Our team can help with YouTube channel, video and audience growth. We’ll continue here on WhatsApp."
+    },
+    {
+      "id": "dm_content",
+      "name": "Content Marketing",
+      "description": "Content strategy and production",
+      "confirmation": "Great choice! You selected Content Marketing. Our team can help with content strategy and production. We’ll continue here on WhatsApp."
+    },
+    {
+      "id": "dm_influencer",
+      "name": "Influencer Marketing",
+      "description": "Creator and influencer campaigns",
+      "confirmation": "Great choice! You selected Influencer Marketing. Our team can help with creator and influencer campaigns. We’ll continue here on WhatsApp."
+    }
+  ]
+}
